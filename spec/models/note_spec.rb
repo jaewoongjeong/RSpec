@@ -1,3 +1,13 @@
+=begin
+
+- "before" block
+  - Code inside "before" block is run before code inside individual tests
+  - It is scoped within a "describe" or "context" block
+
+- Unlike "let", "let!" does NOT lazy load. (It runs the block right away)
+
+=end
+
 require 'rails_helper'
 
 RSpec.describe Note, type: :model do
@@ -62,8 +72,12 @@ RSpec.describe Note, type: :model do
   end
 
   it "delegates name to the user who created it" do
+    # "double" or "instance_double" is NOT a real User object
     user = instance_double("User", name: "Fake User")
     note = Note.new
+    # This line tells the test runner that, at some point within the scope of the test, our code is going to call note.user.
+    # When that happens, instead of finding the value of note.user_id, looking up the value in the database for that User,
+    # and returning the found User object, it just return the Double called user instead.
     allow(note).to receive(:user).and_return(user)
     expect(note.user_name).to eq "Fake User"
   end

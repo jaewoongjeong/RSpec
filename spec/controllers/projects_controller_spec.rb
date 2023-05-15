@@ -1,6 +1,18 @@
+=begin
+
+- HTTP Methods:
+  - GET / POST / PATCH / DESTROY
+- FactoryBot.attributes_for(:project)
+  - It creates a hash of new test attributes from the projects factory.
+- You can aggregate failures by "aggregate_failures" method
+  - This allows additional expectations to continue running
+
+=end
+
 require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
+  # GET Request
   describe "#index" do
     context "as an authenticated user" do
       before do
@@ -30,6 +42,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  # GET Request
   describe "#show" do
     context "as an authorized user" do
       before do
@@ -59,6 +72,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  # POST Request
   describe "#create" do
     context "as an authenticated user" do
       before do
@@ -101,6 +115,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  # PATCH (UPDATE) Request
   describe "#update" do
     context "as an authorized user" do
       before do
@@ -161,6 +176,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  # DESTROY Request
   describe "#destroy" do
     context "as an authorized user" do
       before do

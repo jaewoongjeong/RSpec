@@ -1,3 +1,13 @@
+=begin
+
+- Custom Matcher for RSpec
+
+- It requires "match" method and works with "expected" and "actual" values:
+  - "expected" value is what the result to be in order for the matcher to pass
+  - "actual" value is what the steps in the test gave us
+
+=end
+
 RSpec::Matchers.define :have_content_type do |expected|
   match do |actual|
     begin
@@ -28,4 +38,5 @@ RSpec::Matchers.define :have_content_type do |expected|
   end
 end
 
+# Alias for :have_content_type = :be_content_type
 RSpec::Matchers.alias_matcher :be_content_type , :have_content_type

@@ -1,3 +1,10 @@
+=begin
+
+- It contains the same functionality as #create in spec/projects_controller_spec.rb
+- sign_in method from Devise's sign_in helper ()
+
+=end
+
 require 'rails_helper'
 
 RSpec.describe "Projects", type: :request do
@@ -11,6 +18,7 @@ RSpec.describe "Projects", type: :request do
         project_params = FactoryBot.attributes_for(:project)
         sign_in @user
         expect {
+          # Instead of :create
           post projects_path, params: { project: project_params }
         }.to change(@user.projects, :count).by(1)
       end

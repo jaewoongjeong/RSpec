@@ -13,6 +13,7 @@ RSpec.describe NotesController, type: :controller do
 
   describe "#index" do
     it "searches notes by the provided keyword" do
+      # Expect project.notes.search to receive "rotate tires"
       expect(project).to receive_message_chain(:notes, :search).
         with("rotate tires")
       get :index,

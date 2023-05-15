@@ -1,3 +1,10 @@
+=begin
+
+- "let" method lazy-loads data when called upon
+  - Should be defined at the very first line
+
+=end
+
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do

@@ -16,6 +16,7 @@ describe 'Projects API', type: :request do
     expect(json.length).to eq 1
     project_id = json[0]["id"]
 
+    # API requires email and authentication token to successfully sign in
     get api_project_path(project_id), params: {
       user_email: user.email,
       user_token: user.authentication_token

@@ -8,6 +8,7 @@ RSpec.describe TasksController, type: :controller do
       sign_in user
       get :show, format: :json,
         params: { project_id: project.id, id: task.id }
+      # "have_content_type" is a custom Matcher in spec/support/contexts/project_setup.rb
       expect(response).to have_content_type :json
     end
   end

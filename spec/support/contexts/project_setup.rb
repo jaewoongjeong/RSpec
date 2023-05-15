@@ -1,3 +1,9 @@
+=begin
+
+- "shared_context" allows applying the setup across multiple test files
+
+=end
+
 RSpec.shared_context "project setup" do
   let(:user) { FactoryBot.create(:user) }
   let(:project) { FactoryBot.create(:project, owner: user) }

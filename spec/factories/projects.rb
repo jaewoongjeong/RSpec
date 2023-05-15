@@ -5,6 +5,7 @@ FactoryBot.define do
     due_on 1.week.from_now
     association :owner
 
+    # It creates a new project, then add five new notes to it, using the notes factory
     trait :with_notes do
       after(:create) { |project| create_list(:note, 5, project: project) }
     end

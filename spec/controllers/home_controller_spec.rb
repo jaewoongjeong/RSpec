@@ -1,3 +1,9 @@
+=begin
+
+- "response" is an object containing all the data your app has to return back to the browser
+
+=end
+
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
