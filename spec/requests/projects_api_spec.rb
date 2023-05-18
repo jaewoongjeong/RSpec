@@ -55,4 +55,34 @@ describe 'Projects API', type: :request do
 
     expect(response).to have_http_status(:success)
   end
+
+  it 'updates a project' do
+    user = FactoryBot.create(:user)
+    project = FactoryBot.create(:project, name: "Sample Project", owner: user)
+    project_attributes = FactoryBot.attributes_for(:project, name: "Altered Naming")
+
+    # PATCH /api/projects/id (api/projects#update)
+    patch api_project_path(project.id), params: {
+      user_email: user.email,
+      user_token: user.authentication_token,
+      project: project_attributes
+    }
+
+    json = JSON.parse(response.body)
+    expect(json["name"]).to eq("Altered Naming")
+  end
+
+
+  it 'deletes a project' do
+    user = FactoryBot.create(:user)
+    project = FactoryBot.create(:project, name: "Sample Project", owner: user)
+
+    # DELETE /api/projects/id (api/projects#destroy)
+    delete api_project_path(project.id), params: {
+      user_email: user.email,
+      user_token: user.authentication_token
+    }
+    json = JSON.parse(response.body)
+    expect(json["status"]).to eq("destroy")
+  end
 end
