@@ -6,6 +6,7 @@
   - Create instantiates and also saves
 - FactoryBot supports "sequences" where it increments and injects a counter into the attribute that needs
   to be unique, each time it creates a new object from a factory.
+- "factory :user, aliases: [:owner]" tells that User is also referred to as "owner"
 
 =end
 
@@ -15,6 +16,6 @@ FactoryBot.define do
     first_name "Aaron"
     last_name  "Sumner"
     sequence(:email) { |n| "tester#{n}@example.com" }
-    password "dottle-nouveau-pavilion-tights-furze"
+    password "123456"
   end
 end

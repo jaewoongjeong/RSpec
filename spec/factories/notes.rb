@@ -1,7 +1,8 @@
 =begin
 
 - Note belongs to both Project and User
-- Creating a Note creates a test data for "project" and "user" also!
+- Creating a "Note" creates a test data for the "Project" and "User" also!
+  - Note ----association----> Project ----association----> User(Owner)
 
 =end
 

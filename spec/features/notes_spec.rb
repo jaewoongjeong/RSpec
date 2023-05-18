@@ -11,6 +11,7 @@ RSpec.feature "Notes", type: :feature do
   scenario "user uploads an attachment" do
     sign_in user
     visit project_path(project)
+    save_and_open_page
     click_link "Add Note"
     fill_in "Message", with: "My book cover"
     # Capybara's attach_file method. (Form field label, Path to a test file's location)

@@ -1,3 +1,13 @@
+=begin
+
+- Project belongs to User
+- Creating a Project creates a test data for User also!
+- "trait" defines sets of attributes
+  - It is used for mixing and matching to compose complex objects.
+  - Ex) FactoryBot.create(:project, :due_today)
+
+=end
+
 FactoryBot.define do
   factory :project do
     sequence(:name) { |n| "Project #{n}" }

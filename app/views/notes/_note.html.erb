@@ -8,7 +8,7 @@
       <span class="glyphicon glyphicon-file"></span>
       <%= link_to note.attachment_file_name, note.attachment.url %>
       (<%= note.attachment_content_type %>,
-      <%= number_to_human_size(note.attachment_file_size) %>)
+      <%# <%= number_to_human_size(note.attachment_file_size) %>)
     </div>
   <% end %>
 
